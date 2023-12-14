@@ -1,0 +1,25 @@
+{
+	"name": "css selector housing",
+	"description": "chrome extention build arround css-selector-generator.",
+	"version": "1",
+	"manifest_version": 3,
+	"web_accessible_resources": [
+		{
+			"resources": ["*.map"],
+			"matches": ["*://*/*", "<all_urls>"]
+		}
+	],
+	"background": {
+		"service_worker": "background.js"
+	},
+	"action": {},
+	"permissions": ["background", "storage", "tabs"],
+	"options_page": "options/options.html",
+	"content_scripts": [
+		{
+			"matches": ["*://*/*", "<all_urls>"],
+			"js": ["content/content.js", "content/css-selector-generator.js"],
+			"css": ["content/content.css"]
+		}
+	]
+}
